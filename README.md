@@ -11,7 +11,10 @@ A simple DjDT panel displaying the permissions of the current user and their sou
 CHANGE IMAGE
 ![demo](https://raw.githubusercontent.com/timonweb/django-clearcache/master/demo.gif)
 
-## Installation (assuming Django Debug Toolbar is installed)
+## Installation (on top of Django Debug Toolbar)
+
+0. Install `django-debug-toolbar` (instructions [here](https://django-debug-toolbar.readthedocs.io/en/latest/installation.html))
+
 
 1. Install permission panel using PIP:
 
@@ -26,7 +29,7 @@ CHANGE IMAGE
 
 2. Add **djdt_permissions** to INSTALLED_APPS, make sure it's below `django.toolbaar`:
 
-   Please note that ust as the Debug Toolbar, this panel is not supposed to be installed if 'DEBUG' is False
+   Please note that ust as the Debug Toolbar, this panel is not supposed to be installed if 'DEBUG' is False.
 
       ```
       if DEBUG == True:
@@ -38,12 +41,25 @@ CHANGE IMAGE
          ]
       ```
 
-4. Apply migrations:
+3. Register the new panel by adding path **djdt_permissions.panels.PermissionsPanel** 
+ to setting `DEBUG_TOOLBAR_PANELS` (which is entirely conditional to `DEBUG`). The 
+ sequence of the panels defines their order in the toolbar.
+
+   ```
+   DEBUG_TOOLBAR_PANELS = [
+        'djdt_permissions.panels.PermissionsPanel',
+        'debug_toolbar.panels.history.HistoryPanel',
+        'debug_toolbar.panels.versions.VersionsPanel',
+        # ... any other panel.
+    ]
+   ```
+<!--- Currently no migrations 
+   4. Apply migrations:
 
    ```
    manage.py migrate [--database=<your_database>] [--settings=<your_settings>]
    ```
-
+-->
 ## Usage
 
 TO BE COMPLETED 
