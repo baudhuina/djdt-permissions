@@ -1,0 +1,31 @@
+{% load i18n %}
+{#  Display a table row for group. #}
+<tr  id="groupInfo_{{ group.id }}" data-store-id="{{ group.id }}">
+    <td  class="djdt-width-20">
+        {{ group.name }}
+    </td>
+    <td style="text-align: center" class="djdt-width-20">{{ group.num_permissions }}</td>
+    <td>
+        <button type="button" class="djToggleSwitch" data-toggle-name="groupInfo" data-toggle-id="{{ group.id }}">+</button>
+        <div class="djUnselected djToggleDetails_{{ group.id }}">
+          <table>
+            <colgroup>
+              <col class="djdt-width-10">
+              <col>
+            </colgroup>
+            <tbody>
+              {% for perm in group.permissions %}
+                <tr>
+                    <td><code>{{ perm.code }}</code></td>
+                    <td><code>{{ perm.name }}</code></td>
+                </tr>
+              {% empty %}
+                <tr>
+                  <td colspan="2">{%  trans "No permission" %}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+    </td>
+</tr>

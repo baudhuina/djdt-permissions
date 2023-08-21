@@ -1,0 +1,72 @@
+{% load i18n %}
+<p>Current user: <b>{{ username }}</b> {{ user_descriptor }}</p>
+{%  if data_available %}
+    <h4>{%  blocktranslate %}
+            Groups ({{ num_groups }}) containing '{{ username }}' and associated permissions
+        {%  endblocktranslate %}
+    </h4>
+    <table class="djdt-max-height-100">
+        <thead>
+            <tr>
+                <th>{% trans "Group name" %}</th>
+                <th style="text-align: center">{% trans "#" %}</th>
+                <th>{% trans "Permissions" %}</th>
+            </tr>
+        </thead>
+        <tbody id="djdtHistoryRequests">
+            {% for group in groups %}
+                {% include "djdt_permissions/group_tr.html" %}
+            {%  empty %}
+                <td colspan="2">
+                    {% blocktrans %}(User '{{ username }}' isn't a member of any group){% endblocktrans %}
+                </td>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h4>{%  blocktranslate %}
+            Permissions ({{ num_personal_permissions }}) granted directly to '{{ username }}'
+        {%  endblocktranslate %}
+    </h4>
+    <table class="djdt-max-height-100">
+        <thead>
+            <tr>
+                <th>app_label.codename</th>
+            </tr>
+        </thead>
+        <tbody >
+            {% for perm in personal_permissions %}
+                <tr>
+                    <td><code>{{ perm }}</code></td>
+                </tr>
+            {%  empty %}
+                <td colspan="2">
+                    {% blocktrans %}(No permission was granted directly to user '{{ username }}'){% endblocktrans %}
+                </td>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h4>{%  blocktranslate %}
+            Alphabetical list of all permissions ({{ total_num_permissions }}) granted to '{{ username }}'
+        {%  endblocktranslate %}
+    </h4>
+    <table class="djdt-max-height-100">
+        <thead>
+            <tr>
+                <th>app_label.codename</th>
+            </tr>
+        </thead>
+        <tbody >
+            {% for perm in all_permissions %}
+                <tr>
+                    <td><code>{{ perm }}</code></td>
+                </tr>
+            {%  empty %}
+                <td colspan="2">
+                    {% blocktrans %}(No permission was granted to user '{{ username }}'){%  endblocktrans %}
+                </td>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No data available.</p>
+{% endif %}
