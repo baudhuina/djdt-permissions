@@ -29,12 +29,12 @@ class PermissionsPanel(Panel):
             'groups': {},
         }
         if not hasattr(self.request, 'user'):
-            data['username'] = "---"
+            data['username'] = "None"
             data['user_descriptor']: ""
             data['data_available'] = False
         else:
             user = self.request.user
-            data['username'] = user.username
+            data['username'] = user.username if user.username else "None"
             data['user_descriptor'] = (f"(authenticated: {'Yes' if user.is_authenticated else 'No'}, "
                                        f"staff: {'Yes' if user.is_staff else 'No'}, "
                                        f"superuser: {'Yes' if user.is_superuser else 'No'})")

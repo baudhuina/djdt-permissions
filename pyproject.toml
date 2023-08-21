@@ -7,9 +7,9 @@ readme = "README.md"
 packages = [{include = "djdt_permissions"}]
 
 [tool.poetry.dependencies]
-python = "^3.11"
-django = "^4.2.4"
-
+python = "^3.8"
+django = "^3.0"  # TODO MATCH DjDT dependencies.
+django-debug-toolbar = "^4.0.0"
 
 [build-system]
 requires = ["poetry-core"]
