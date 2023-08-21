@@ -1,6 +1,6 @@
 
 # Tests to be added:
-Fixtures: 3 users, 3 groups, 6 perms (use auth perms)
+# Fixtures: 3 users, 3 groups, 6 perms (use auth perms)
 
 # Without authentication: check for  (regex
 # "Current user: None (authenticated: No, staff: No, superuser: No).*No data available."
