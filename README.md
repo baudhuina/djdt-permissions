@@ -9,7 +9,6 @@
 A simple DjDT panel displaying the permissions of the current user and their source. 
 
 CHANGE IMAGE
-![demo](https://raw.githubusercontent.com/timonweb/django-clearcache/master/demo.gif)
 
 ## Installation (on top of Django Debug Toolbar)
 
