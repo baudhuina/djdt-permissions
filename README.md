@@ -8,7 +8,7 @@
 
 A simple DjDT panel displaying the permissions of the current user and their source. 
 
-CHANGE IMAGE
+<img width="500" alt="djdt-permission_capture" src="https://github.com/baudhuina/djdt-permissions/assets/26870372/b936a1a1-b9f7-48c8-a9ee-a9c9f77c6989">
 
 ## Installation (on top of Django Debug Toolbar)
 
