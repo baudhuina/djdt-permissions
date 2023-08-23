@@ -13,7 +13,7 @@ A simple DjDT panel displaying the permissions of the current user and their sou
 ## Installation (on top of Django Debug Toolbar)
 
 First, install `django-debug-toolbar` (instructions 
-[here](https://django-debug-toolbar.readthedocs.io/en/latest/installation.html)), then:
+<a href='https://django-debug-toolbar.readthedocs.io/en/latest/installation.html' target="_blank">here</a>), then:
 
 
 1. Install permission panel using PIP:
