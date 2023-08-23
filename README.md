@@ -13,7 +13,8 @@ CHANGE IMAGE
 
 ## Installation (on top of Django Debug Toolbar)
 
-0. Install `django-debug-toolbar` (instructions [here](https://django-debug-toolbar.readthedocs.io/en/latest/installation.html))
+First, install `django-debug-toolbar` (instructions 
+[here](https://django-debug-toolbar.readthedocs.io/en/latest/installation.html)), then:
 
 
 1. Install permission panel using PIP:
@@ -21,13 +22,13 @@ CHANGE IMAGE
       ```
       pip install COMPLETE (GET FROM REPO)
       ```
-<!---
-      ```
-      pip install djdt-permissions
-      ```
--->
+    <!---
+          ```
+          pip install djdt-permissions
+          ```
+    -->
 
-2. Add **djdt_permissions** to INSTALLED_APPS, make sure it's below `django.toolbaar`:
+2. Add **djdt_permissions** to INSTALLED_APPS, make sure it's below `django.toolbar`:
 
    Please note that ust as the Debug Toolbar, this panel is not supposed to be installed if 'DEBUG' is False.
 
@@ -53,8 +54,22 @@ CHANGE IMAGE
         # ... any other panel.
     ]
    ```
+   
+4. (optional) If you want the panel to be disabled by default, add its full path
+    in the `DEBUG_TOOLBAR_CONFIG` dictionary, in the `DISABLE_PANELS` key.
+
+    ```
+    DEBUG_TOOLBAR_CONFIG = [
+        "DISABLE_PANELS":  {
+             'djdt_permissions.panels.permissions_panelPermissionsPanel',
+             # any other panel to disable
+         },
+        # other config settings.
+    ]
+    ```
+
 <!--- Currently no migrations 
-   4. Apply migrations:
+   5. Apply migrations:
 
    ```
    manage.py migrate [--database=<your_database>] [--settings=<your_settings>]
@@ -68,15 +83,20 @@ TO BE COMPLETED
 ## Installing the test project
 
 Would you wish to modify/contribute to this project:
-1. Fork the GIT repo from Github. It contains a Django test project
-2. Install dependencies: `poetry install`
-3. Apply migrations: `manage.py migrate`
-4. Run server: `manage.py runserver`
-5. Point your browser at http://localhost:8000
+1. Fork the GIT repo from GitHub. It contains a Django test project.
+2. Install dependencies: `poetry install`.
+3. Apply migrations: `manage.py migrate [--settings=test_project.settings]`.
+4. Run server: `manage.py runserver [--settings=test_project.settings]`.
+5. Point your browser at http://localhost:8000.
 
-To run the test:
-TO BE COMPLETED
+## Running the tests
+
+Once the test project is installed (see above), run the tests with:
+
+    ```
+    manage.py test [--database=<your_database>] [--settings=<your_settings>]
+    ```
 
 ## Contact me
 
-alain.baudhuin@skynet.be   MAKE LINK
+[alain.baudhuin@skynet.be](mailto:alain.baudhuin@skynet.be)

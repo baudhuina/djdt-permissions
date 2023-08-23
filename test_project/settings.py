@@ -146,6 +146,7 @@ if DEBUG:
         'debug_toolbar.panels.profiling.ProfilingPanel',
     ]
     SHOW_COLLAPSED = True
+    DEBUG_TOOLBAR_CONFIG = {"DISABLE_PANELS": {}}
 
     INSTALLED_APPS.append("debug_toolbar")
     INSTALLED_APPS.append("djdt_permissions")
