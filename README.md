@@ -1,12 +1,14 @@
 # Permission panel for Django Debug Toolbar 
 
 <!--- 
-![License](https://img.shields.io/pypi/l/django-clearcache)
-![Django versions](https://img.shields.io/pypi/djversions/django-clearcache)
-![Python versions](https://img.shields.io/pypi/pyversions/django-clearcache)
+![License](https://img.shields.io/pypi/l/djdt-permissions)
+![Django versions](https://img.shields.io/pypi/djversions/django-permissions)
+![Python versions](https://img.shields.io/pypi/pyversions/django-permissions)
 -->
 
-A simple DjDT panel displaying the permissions of the current user and their source. 
+A simple DjDT panel displaying the permissions granted to the current user, how the 
+current user obtained each one of them (directly or through a group 
+membership), and the resulting consolidated permissions set.
 
 <img width="500" alt="djdt-permission_capture" src="https://github.com/baudhuina/djdt-permissions/assets/26870372/b936a1a1-b9f7-48c8-a9ee-a9c9f77c6989">
 
@@ -27,9 +29,9 @@ First, install `django-debug-toolbar` (instructions
           ```
     -->
 
-2. Add **djdt_permissions** to INSTALLED_APPS, make sure it's below `django.toolbar`:
+2. Add `djdt_permission` to `INSTALLED_APPS`, make sure it's below `django.toolbar`:
 
-   Please note that ust as the Debug Toolbar, this panel is not supposed to be installed if 'DEBUG' is False.
+   Please note that just as the Debug Toolbar, this panel is not supposed to be installed if 'DEBUG' is False.
 
       ```
       if DEBUG == True:
@@ -41,7 +43,7 @@ First, install `django-debug-toolbar` (instructions
          ]
       ```
 
-3. Register the new panel by adding path **djdt_permissions.panels.PermissionsPanel** 
+3. Register the new panel by adding path `djdt_permissions.panels.PermissionsPanel` 
  to setting `DEBUG_TOOLBAR_PANELS` (which is entirely conditional to `DEBUG`). The 
  sequence of the panels defines their order in the toolbar.
 
@@ -55,10 +57,10 @@ First, install `django-debug-toolbar` (instructions
    ```
    
 4. (optional) If you want the panel to be disabled by default, add its full path
-    in the `DEBUG_TOOLBAR_CONFIG` dictionary, in the `DISABLE_PANELS` key.
+    in the `DEBUG_TOOLBAR_CONFIG[DISABLE_PANELS]` set.
 
     ```
-    DEBUG_TOOLBAR_CONFIG = [
+    DEBUG_TOOLBAR_CONFIG = {
         "DISABLE_PANELS":  {
              'djdt_permissions.panels.permissions_panelPermissionsPanel',
              # any other panel to disable
@@ -76,7 +78,9 @@ First, install `django-debug-toolbar` (instructions
 -->
 ## Usage
 
-TO BE COMPLETED 
+The Permission Panel is used just as any other panel of the Django Debug Toolbar:
+- Open DJdT overlay;
+- Enable, disable, consult the panel at will...
 
 
 ## Installing the test project
