@@ -4,7 +4,7 @@
 # Future versions of Poetry will make use of the project section, but until then, be sure to always update both
 # sections consistently.
 name = "djdt-permissions"
-version = "1.0.1"
+version = "1.0.2"
 description = "A panel for Django Debug Toolbar (DjDT) to display the current user's permissions."
 authors = ["Alain Baudhuin <alain.baudhuin@skynet.be>"]
 packages = [{include = "djdt_permissions"}]
