@@ -1,15 +1,49 @@
+
 [tool.poetry]
+# A number of fields hereunder are required, but redundant with the corresponding field in the [project] section.
+# Future versions of Poetry will make use of the project section, but until then, be sure to always update both
+# sections consistently.
 name = "djdt-permissions"
-version = "0.9.1"
+version = "1.0.0"
 description = "A panel for Django Debug Toolbar (DjDT) to display the current user's permissions."
 authors = ["Alain Baudhuin <alain.baudhuin@skynet.be>"]
-readme = "README.md"
 packages = [{include = "djdt_permissions"}]
+readme = "README.md"
+license = "BSD-3-Clause"
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Web Environment",
+  "Framework :: Django",
+  "Framework :: Django :: 3.2",
+  "Framework :: Django :: 4.0",
+  "Framework :: Django :: 4.1",
+  "Framework :: Django :: 4.2",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: BSD License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+homepage = "https://github.com/baudhuina/djdt-permissions"
+repository = "https://github.com/baudhuina/djdt-permissions"
+# Documentation = "URL to readTheDocs or...."
+keywords = [ "Django Debug Toolbar", "DJdT", "django-toolbar"]
+
 
 [tool.poetry.dependencies]
 python = "^3.8"
 django = ">=3.2, ^4.2"
 django-debug-toolbar = ">=4.0.0"
+
+[tool.poetry.group.dev.dependencies] # Dependencies required during development only.
+build = ">=0.10"
+twine = "^4.0"
+create-license = "^2.1"
 
 [build-system]
 requires = ["poetry-core"]

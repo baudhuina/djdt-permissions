@@ -1,10 +1,8 @@
 # Permission panel for Django Debug Toolbar 
 
-<!--- 
 ![License](https://img.shields.io/pypi/l/djdt-permissions)
-![Django versions](https://img.shields.io/pypi/djversions/django-permissions)
-![Python versions](https://img.shields.io/pypi/pyversions/django-permissions)
--->
+![Django versions](https://img.shields.io/pypi/djversions/djdt-permissions)
+![Python versions](https://img.shields.io/pypi/pyversions/djdt-permissions)
 
 A simple DjDT panel displaying the permissions granted to the current user, how the 
 current user obtained each one of them (directly or through a group 
@@ -18,11 +16,13 @@ First, install `django-debug-toolbar` (instructions
 <a href='https://django-debug-toolbar.readthedocs.io/en/latest/installation.html' target='_blank'>here</a>), then:
 
 
-1. Install permission panel using PIP:
+1. Install permission panel, either with Pip or Poetry:
 
       ```
-      pip install COMPLETE (GET FROM REPO)
+      pip install 'git+https://github.com/baudhuina/djdt-permissions.git@1.0.0#egg=djdt_permissions'
       ```
+      or complete your project's  `pyproject.toml` file with XXX TO BE COMPLETED and run `poetry install` or `poetry update`.
+
     <!---
           ```
           pip install djdt-permissions
