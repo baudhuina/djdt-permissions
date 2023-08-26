@@ -1,6 +1,7 @@
-# Permission panel for Django Debug Toolbar 
+# Permission panel for Django Debug Toolbar [![Pypi](https://img.shields.io/pypi/v/djdt-permissions)](http://pypi.org/project/djdt-permissions)
 
 ![License](https://img.shields.io/pypi/l/djdt-permissions)
+![coverage](https://img.shields.io/badge/Coverage-94%25-green)
 ![Django versions](https://img.shields.io/pypi/djversions/djdt-permissions)
 ![Python versions](https://img.shields.io/pypi/pyversions/djdt-permissions)
 
@@ -85,20 +86,38 @@ The Permission Panel is used just as any other panel of the Django Debug Toolbar
 
 ## Installing the test project
 
-Would you wish to modify/contribute to this project:
+Would you wish to modify/contribute to this project...
+
+NB: The commands below assume that your 
+`DJANGO_SETTINGS_MODULE`is not set, and that the settings will be the default value from `manage.py`, 
+i.e.'test_project/settings`. If it is set to another value, add a `--setings=test_project.settings` option
+to all `manage.py` commands.
+
 1. Fork the GIT repo from GitHub. It contains a Django test project.
 2. Install dependencies: `poetry install`.
-3. Apply migrations: `manage.py migrate [--settings=test_project.settings]`.
-4. Run server: `manage.py runserver [--settings=test_project.settings]`.
+3. Apply migrations: `manage.py migrate`.
+4. Run server: `manage.py runserver`.
 5. Point your browser at http://localhost:8000.
 
 ## Running the tests
 
-Once the test project is installed (see above), run the tests with:
+Once the test project is installed (see above), run the tests without coverage measurement:
 
-    ```
-    manage.py test [--database=<your_database>] [--settings=<your_settings>]
-    ```
+```
+manage.py test
+```
+
+or with coverage measurement (report will be in `coverage_html/index.html`):
+
+```
+coverage run -m manage test [-v2]
+```
+
+To run the tests for all supported python and django combinations:
+
+```
+tox
+```
 
 ## Contact me
 

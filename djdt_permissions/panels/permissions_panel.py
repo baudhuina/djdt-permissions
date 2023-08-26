@@ -28,22 +28,17 @@ class PermissionsPanel(Panel):
         data = {
             'groups': {},
         }
-        if not hasattr(self.request, 'user'):
-            data['username'] = "None"
-            data['user_descriptor']: ""
-            data['data_available'] = False
-        else:
-            user = self.request.user
-            data['username'] = user.username if user.username else "None"
-            data['user_descriptor'] = (f"(authenticated: {'Yes' if user.is_authenticated else 'No'}, "
-                                       f"staff: {'Yes' if user.is_staff else 'No'}, "
-                                       f"superuser: {'Yes' if user.is_superuser else 'No'})")
-            data['data_available'] = user.is_authenticated
-            data['groups'], data['num_groups'] = self.collect_user_perms_and_groups(self.request)
-            data['personal_permissions'], data['num_personal_permissions'] = (
-                self.collect_personal_permissions(self.request))
-            data['all_permissions'], data['total_num_permissions'] = (
-                self.collect_all_permissions(self.request))
+        user = self.request.user
+        data['username'] = user.username if user.username else "None"
+        data['user_descriptor'] = (f"(authenticated: {'Yes' if user.is_authenticated else 'No'}, "
+                                   f"staff: {'Yes' if user.is_staff else 'No'}, "
+                                   f"superuser: {'Yes' if user.is_superuser else 'No'})")
+        data['data_available'] = user.is_authenticated
+        data['groups'], data['num_groups'] = self.collect_user_perms_and_groups(self.request)
+        data['personal_permissions'], data['num_personal_permissions'] = (
+            self.collect_personal_permissions(self.request))
+        data['all_permissions'], data['total_num_permissions'] = (
+            self.collect_all_permissions(self.request))
 
         self.record_stats(data)
         return super().content

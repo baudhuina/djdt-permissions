@@ -4,7 +4,7 @@
 # Future versions of Poetry will make use of the project section, but until then, be sure to always update both
 # sections consistently.
 name = "djdt-permissions"
-version = "1.0.0"
+version = "1.0.1"
 description = "A panel for Django Debug Toolbar (DjDT) to display the current user's permissions."
 authors = ["Alain Baudhuin <alain.baudhuin@skynet.be>"]
 packages = [{include = "djdt_permissions"}]
@@ -44,7 +44,30 @@ django-debug-toolbar = ">=4.0.0"
 build = ">=0.10"
 twine = "^4.0"
 create-license = "^2.1"
+coverage = "^7.3"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.coverage.run]
+branch = true
+parallel = true
+source = ["djdt_permissions"]
+omit = ["*/tests/*"]
+
+[tool.coverage.paths]
+source = ["src", ".tox/*/site-packages"]  # file paths that should be considered equivalent
+                                          # when combining data from different machines
+
+[tool.coverage.report]
+# Update coverage badge link in README.rst when fail_under changes
+fail_under = 94
+show_missing = true
+skip_covered = false
+skip_empty = true
+
+[tool.coverage.html]
+directory = "coverage_html"
+skip_covered = false
+skip_empty = true
